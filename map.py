@@ -9,11 +9,11 @@ f = FingerPrint()
 
 for line in sys.stdin:
 	cols = line.split("\t")
-	# try:
-	if cols[2] != "":
-		print "%s\t%s\t%s" % (f.bigram_fingerprint(cols[2]),cols[2],cols[7])
-	# except:
-	# 	pass
+	try:
+		if cols[2] != "":
+			print "%s\t%s\t%s" % (f.bigram_fingerprint(cols[2]),cols[2],cols[7])
+	except:
+		pass
 	
 
 
