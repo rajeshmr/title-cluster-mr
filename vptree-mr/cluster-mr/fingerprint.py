@@ -15,11 +15,11 @@ class FingerPrint(object):
 		return " ".join(set(text.strip().lower().split()))
 	
 	def fingerprint(self,text):
-		fp = " ".join(sorted(self.regex.sub(" ",self.clean(text)).split()))
+		fp = " ".join(sorted(self.regex.sub("",self.clean(text)).split()))
 		return fp
 
 	def bigram_fingerprint(self,text):
-		postproc = self.regex.sub(" ",self.clean(text).replace(" ",""))
+		postproc = self.regex.sub("",self.clean(text).replace(" ",""))
 		bigrms =  bigrams(postproc)
 		b = []
 		for bi in bigrms:
@@ -27,7 +27,7 @@ class FingerPrint(object):
 		return "".join(sorted(set(b)))
 
 	def bigram_fingerprint_num(self,text):
-		postproc = self.regex.sub(" ",self.remnum.sub("num",self.clean(text)).replace(" ",""))
+		postproc = self.regex.sub("",self.remnum.sub("num",self.clean(text)).replace(" ",""))
 		bigrms =  bigrams(postproc)
 		b = []
 		for bi in bigrms:

@@ -1,7 +1,7 @@
 import sys
 from Levenshtein import distance
 
-DISTANCE = 10
+DISTANCE = 15
 
 cluster = []
 
@@ -16,11 +16,10 @@ for line in sys.stdin:
 		if distance(last[0],cols[0]) <= DISTANCE:
 			cluster.append(cols)
 		else:
-			print 
-			print "Cluster ID : ", cid
-			print "-"*30
+			print
 			for c in cluster:
-				print "%s\t%s" % (cid,"\t".join(c))
+				if cid != 0:
+					print "%s\t%s" % (cid,"\t".join(c))
 			cluster = []
 			cid+=1
 
